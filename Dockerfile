@@ -20,4 +20,5 @@ RUN cd /var/www/volkszaehler.org/ && composer install
 ENV db_host db_port db_user db_pass
 
 COPY vz/startit.sh /startit.sh
+RUN chmod a+x /startit.sh
 CMD ["/startit.sh"]
