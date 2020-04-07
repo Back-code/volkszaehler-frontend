@@ -8,6 +8,8 @@ sed -i -e "s/host: 127.0.0.1/host: ${db_host}/" -e "s/# port: 3306/port: ${db_po
 
 cd  /var/www/volkszaehler.org/etc
 sed -i s,htdocs,/var/www/volkszaehler.org/htdocs, middleware.json
+# seems to run twice, delete double replacement
+sed -i s,volkszaehler.org//var/www/,,  middleware.json
 
 cd  /var/www/volkszaehler.org/htdocs
 sed -i s/api// js/options.js
