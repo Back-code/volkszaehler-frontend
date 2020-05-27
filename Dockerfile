@@ -3,7 +3,8 @@ FROM debian
 # see https://wiki.volkszaehler.org/software/middleware/installation#manuelle_installation
 
 RUN apt-get update && apt-get install -y \
-git-core php-cli php-mysql php-apcu mariadb-client php-xml php-mbstring ca-certificates wget zip curl
+git-core php-cli php-mysql php-apcu mariadb-client php-xml php-mbstring ca-certificates wget zip curl \
+&& rm -rf /var/lib/apt/lists/*
 
 RUN git clone git://github.com/volkszaehler/volkszaehler.org.git ~/volkszaehler.org && \
 mkdir /var/www && \
