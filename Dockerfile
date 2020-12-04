@@ -18,7 +18,12 @@ chmod +x /usr/local/bin/composer
 
 RUN cd /var/www/volkszaehler.org/ && composer install
 
-ENV db_host db_port db_user db_pass
+# ENV db_host 
+# ENV db_port 
+# ENV db_user 
+# ENV db_pass
+# ENV db_admin_user
+# ENV db_admin_pass
 
 COPY vz/startit.sh /startit.sh
 RUN chmod a+x /startit.sh

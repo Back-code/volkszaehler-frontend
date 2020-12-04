@@ -7,10 +7,10 @@ cp config.dist.yaml config.yaml
 sed -i \
 -e "s/host: localhost/host: ${db_host}/" \
 -e "s/# port: 3306/port: ${db_port}/" \
--e "s/user: vz/user: ${db_user}/" \
--e "s/password: demo/password: ${db_pass}/" \
--e "s/user: vz_admin/user: ${db_admin_user}/" \
--e "s/password: admin_demo/password: ${db_admin_pass}/" \
+-e "1,/admin:/s/user: vz/user: ${db_user}/" \
+-e "1,/admin:/s/password: demo/password: ${db_pass}/" \
+-e "/admin:/,\$s/user: vz_admin/user: ${db_admin_user}/" \
+-e "/admin:/,\$s/password: admin_demo/password: ${db_admin_pass}/" \
 config.yaml
 
 
