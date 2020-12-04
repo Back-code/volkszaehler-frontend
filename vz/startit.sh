@@ -1,10 +1,17 @@
 #!/bin/bash
 
-#ENV db_host db_port db_user db_pass
+#ENV db_host db_port db_user db_pass db_admin_user db_admin_pass
 
 cd /var/www/volkszaehler.org/etc
 cp config.dist.yaml config.yaml
-sed -i -e "s/host: localhost/host: ${db_host}/" -e "s/# port: 3306/port: ${db_port}/" -e "s/user: vz/user: ${db_user}/" -e "s/password: demo/password: ${db_pass}/" config.yaml
+sed -i \
+-e "s/host: localhost/host: ${db_host}/" \
+-e "s/# port: 3306/port: ${db_port}/" \
+-e "s/user: vz/user: ${db_user}/" \
+-e "s/password: demo/password: ${db_pass}/" \
+-e "s/user: vz_admin/user: ${db_admin_user}/" \
+-e "s/password: admin_demo/password: ${db_admin_pass}/" \
+config.yaml
 
 
 cd  /var/www/volkszaehler.org/htdocs
