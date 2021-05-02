@@ -1,8 +1,8 @@
-FROM debian
+FROM debian:latest
 
 # see https://wiki.volkszaehler.org/software/middleware/installation#manuelle_installation
 
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
 git-core php-cli php-mysql php-apcu mariadb-client php-xml php-mbstring ca-certificates wget zip curl \
 && rm -rf /var/lib/apt/lists/*
 
@@ -25,6 +25,7 @@ RUN cd /var/www/volkszaehler.org/ && composer install
 # ENV db_admin_user
 # ENV db_admin_pass
 
+EXPOSE 80
 EXPOSE 8080
 EXPOSE 8082
 EXPOSE 5582
